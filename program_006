@@ -1,0 +1,33 @@
+"""
+6. Create a Python program to demonstrate polymorphism with inheritance.
+(Single, Multilevel
+Inheritance, Hierarchical)
+"""
+class Ksr_Institution:#parent
+    def __init__(self):
+        name="KSR Institution"
+        address="Namakkal"
+    def student_join(self,count):
+        total_student_count_in_ksr = 50000
+        total_student_count_in_ksr=total_student_count_in_ksr+count
+        print(f"{count} students join in KSR Institution\nTotal student count In KSR Institution: {total_student_count_in_ksr}")
+
+class Ksr_Engineering(Ksr_Institution):#child
+    def __init__(self):
+        self.name="KSR Engineering"
+    def student_join(self,count):
+        total_student_count_in_ksr_eng = 10000
+        total_student_count_in_ksr_eng=(total_student_count_in_ksr_eng+count)
+        print(f"{count} students are joined in KSR Engineering college\n Total students count in Engineering college: {total_student_count_in_ksr_eng}")
+        super().student_join(count)
+class Ksr_CSE(Ksr_Engineering):
+    def __init__(self):#grand child
+        name="KSR CSE department"
+    def student_join(self,count):
+        total_student_count_in_Cse = 2000
+        total_student_count_in_Cse=total_student_count_in_Cse+count
+        print(f"{count} students join in KSR CSE Department\nTotal students count in CSE department: {total_student_count_in_Cse}")
+        super().student_join(count)
+management = Ksr_Institution()
+ksr_cse = Ksr_CSE()
+ksr_cse.student_join(1000)
